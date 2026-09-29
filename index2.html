@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Cost of Living Crisis · US 2024</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+body {
+  background: #FFFFFF;
+  font-family: 'DM Sans', sans-serif;
+  color: #111;
+}
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 6rem;
+}
+
+/* HERO */
+.hero {
+  margin-bottom: 5rem;
+  border-bottom: 0.5px solid rgba(0,0,0,0.1);
+  padding-bottom: 3rem;
+}
+.hero-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #2D6A4F;
+  margin-bottom: 1.5rem;
+}
+.hero-hed {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(38px, 6vw, 60px);
+  font-weight: 900;
+  line-height: 1.06;
+  color: #111;
+  margin-bottom: 1.25rem;
+}
+.hero-hed em {
+  font-style: italic;
+  color: #2D6A4F;
+}
+.hero-dek {
+  font-size: 16px;
+  font-weight: 300;
+  color: #666;
+  line-height: 1.75;
+  max-width: 560px;
+  margin-bottom: 2.5rem;
+}
+.hero-kpis {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 0;
+  border-top: 0.5px solid rgba(0,0,0,0.1);
+  padding-top: 2rem;
+}
+.kpi { padding-right: 2rem; }
+.kpi:not(:first-child) { 
+  padding-left: 2rem;
+  border-left: 0.5px solid rgba(0,0,0,0.1);
+}
+.kpi-n {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  font-weight: 900;
+  color: #1B4332;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.kpi-l {
+  font-size: 12px;
+  color: #888;
+  line-height: 1.5;
+}
+
+/* CHAPTER */
+.chapter {
+  margin-bottom: 5rem;
+}
+.ch-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #95D5B2;
+  margin-bottom: .6rem;
+}
+.ch-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 3.5vw, 28px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #111;
+  margin-bottom: .4rem;
+}
+.ch-sub {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 1.5rem;
+  font-family: 'DM Mono', monospace;
+  letter-spacing: .3px;
+}
+
+/* EMBED — chart breathes */
+.embed {
+  border-radius: 4px;
+  overflow: hidden;
+  background: #fff;
+  margin-bottom: 1rem;
+}
+.embed iframe {
+  width: 100%;
+  border: none;
+  display: block;
+}
+
+/* SINGLE INSIGHT LINE — no box */
+.insight {
+  font-size: 13.5px;
+  color: #444;
+  line-height: 1.7;
+  padding-left: 1rem;
+  border-left: 2px solid #52B788;
+  margin-bottom: 1rem;
+}
+.insight strong { color: #1B4332; font-weight: 500; }
+
+/* INLINE STATS — light, doesn't compete */
+.inline-stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-bottom: 1rem;
+  padding: 1.25rem 0;
+  border-top: 0.5px solid rgba(0,0,0,0.08);
+  border-bottom: 0.5px solid rgba(0,0,0,0.08);
+}
+.is-item {}
+.is-n {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 3px;
+}
+.is-l {
+  font-size: 11px;
+  color: #999;
+  line-height: 1.4;
+}
+
+/* SOURCE */
+.src {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: #bbb;
+  letter-spacing: .3px;
+  line-height: 1.8;
+}
+
+/* CLOSING */
+.closing {
+  border-top: 0.5px solid rgba(0,0,0,0.1);
+  padding-top: 3rem;
+  margin-bottom: 3rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+.closing-fig {
+  flex-shrink: 0;
+}
+.closing-big {
+  font-family: 'Playfair Display', serif;
+  font-size: 72px;
+  font-weight: 900;
+  color: #1B4332;
+  line-height: 1;
+}
+.closing-unit {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: #aaa;
+  letter-spacing: 1px;
+  margin-top: 6px;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+.closing-right {}
+.closing-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: .75rem;
+  line-height: 1.25;
+}
+.closing-body {
+  font-size: 14px;
+  font-weight: 300;
+  color: #666;
+  line-height: 1.8;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: #ccc;
+  letter-spacing: .5px;
+  line-height: 2.5;
+  border-top: 0.5px solid rgba(0,0,0,0.07);
+  padding-top: 2rem;
+}
+
+@media(max-width:540px){
+  .hero-kpis{grid-template-columns:1fr; gap:1.5rem;}
+  .kpi{padding:0; border-left:none!important;}
+  .closing{grid-template-columns:1fr; gap:1.5rem;}
+  .inline-stats{flex-wrap:wrap; gap:1.5rem;}
+}
+</style>
+</head>
+<body>
+<main class="page">
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-tag">United States &nbsp;·&nbsp; 2024</div>
+  <h1 class="hero-hed">The cost of living<br><em>didn't come down</em><br>when inflation did</h1>
+  <p class="hero-dek">Prices are permanently higher, wages haven't kept pace, and millions of American households are running out of road.</p>
+  <div class="hero-kpis">
+    <div class="kpi">
+      <div class="kpi-n">54%</div>
+      <div class="kpi-l">say cost of living is their #1 financial challenge</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-n">67%</div>
+      <div class="kpi-l">of Americans living paycheck to paycheck</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-n">$1.23T</div>
+      <div class="kpi-l">collective US credit card debt, Q3 2025</div>
+    </div>
+  </div>
+</header>
+
+<!-- CH 1 -->
+<div class="chapter">
+  <div class="ch-label">01 &nbsp;·&nbsp; Where the money goes</div>
+  <h2 class="ch-title">Housing swallows a third of every dollar</h2>
+  <p class="ch-sub">Share of total annual US household expenditure by category · BLS, 2024</p>
+  <div class="embed">
+    <iframe src="https://flo.uri.sh/visualisation/29308387/embed" title="US household spending breakdown" height="500" scrolling="no"></iframe>
+  </div>
+  <p class="insight"><strong>At 33.4%</strong>, housing leaves households less than 67 cents of every dollar for everything else — food, healthcare, transport, and savings combined.</p>
+  <div class="src">Bureau of Labor Statistics · Consumer Expenditure Survey 2024 · bls.gov/news.release/cesan.htm</div>
+</div>
+
+<!-- CH 2 -->
+<div class="chapter">
+  <div class="ch-label">02 &nbsp;·&nbsp; The wage gap</div>
+  <h2 class="ch-title">When inflation spiked, real wages fell off a cliff</h2>
+  <p class="ch-sub">Real wage growth vs CPI inflation (%) · United States · 2019–2024</p>
+  <div class="embed">
+    <iframe src="https://flo.uri.sh/visualisation/29308761/embed" title="Real wage growth vs CPI inflation" height="440" scrolling="no"></iframe>
+  </div>
+  <p class="insight">In 2022, real wages fell <strong>−2.8%</strong> while inflation hit <strong>8%</strong> — the widest gap in decades. Even as inflation retreated, wages have barely recovered.</p>
+  <div class="src">BLS Employment Cost Index · BLS CPI Annual Averages · ILO Global Wage Report 2024–25</div>
+</div>
+
+<!-- CH 3 -->
+<div class="chapter">
+  <div class="ch-label">03 &nbsp;·&nbsp; The debt spiral</div>
+  <h2 class="ch-title">Americans are borrowing to survive</h2>
+  <p class="ch-sub">US household debt by type ($B) · 2019–2024 · Federal Reserve Bank of New York</p>
+  <div class="embed">
+    <iframe src="https://flo.uri.sh/visualisation/29309263/embed" title="US household debt bar chart race" height="460" scrolling="no"></iframe>
+  </div>
+  <div class="inline-stats">
+    <div class="is-item">
+      <div class="is-n" style="color:#D94F3D;">$1.17T</div>
+      <div class="is-l">Credit card debt 2024</div>
+    </div>
+    <div class="is-item">
+      <div class="is-n" style="color:#D94F3D;">+49%</div>
+      <div class="is-l">Rise since 2020</div>
+    </div>
+    <div class="is-item">
+      <div class="is-n" style="color:#D94F3D;">$1.61T</div>
+      <div class="is-l">Student loan debt 2024</div>
+    </div>
+  </div>
+  <div class="src">Federal Reserve Bank of New York · Household Debt & Credit Report 2024 · newyorkfed.org</div>
+</div>
+
+<!-- CH 4 -->
+<div class="chapter">
+  <div class="ch-label">04 &nbsp;·&nbsp; The income divide</div>
+  <h2 class="ch-title">Not all states are equal</h2>
+  <p class="ch-sub">Median household income by state · US Census Bureau, ACS 2024 · darker = higher income</p>
+  <div class="embed">
+    <iframe src="https://flo.uri.sh/visualisation/29308605/embed" title="US median household income by state" height="480" scrolling="no"></iframe>
+  </div>
+  <div class="inline-stats">
+    <div class="is-item">
+      <div class="is-n" style="color:#2D6A4F;">$109,707</div>
+      <div class="is-l">DC — highest median income</div>
+    </div>
+    <div class="is-item">
+      <div class="is-n" style="color:#D94F3D;">$57,917</div>
+      <div class="is-l">West Virginia — lowest</div>
+    </div>
+  </div>
+  <div class="src">US Census Bureau · American Community Survey 2024 1-year estimates · ACSBR-025</div>
+</div>
+
+<!-- CH 5 -->
+<div class="chapter">
+  <div class="ch-label">05 &nbsp;·&nbsp; The regional picture</div>
+  <h2 class="ch-title">The South clusters at the bottom</h2>
+  <p class="ch-sub">Median household income by state, grouped by region · US Census Bureau, ACS 2024</p>
+  <div class="embed">
+    <iframe src="https://flo.uri.sh/visualisation/29312305/embed" title="Income by US region — sunburst" height="560" scrolling="no"></iframe>
+  </div>
+  <p class="insight">Every state in the lowest income tier sits in the South — West Virginia, Mississippi, Alabama, Arkansas. <strong>The Northeast and West dominate the top bracket</strong>, driven by technology and finance concentration.</p>
+  <div class="src">US Census Bureau · American Community Survey 2024 1-year estimates · ACSBR-025</div>
+</div>
+
+<!-- CLOSING -->
+<div class="closing">
+  <div class="closing-fig">
+    <div class="closing-big">$46K</div>
+    <div class="closing-unit">income gap<br>richest vs<br>poorest state</div>
+  </div>
+  <div class="closing-right">
+    <div class="closing-title">The cumulative damage is the real story</div>
+    <p class="closing-body">Inflation peaked in 2022 and has since retreated — but prices don't reverse. With housing consuming a third of income, wages still recovering, and household debt at record highs, ordinary Americans feel the squeeze even as the headline numbers improve.</p>
+  </div>
+</div>
+
+<footer class="footer">
+  Bureau of Labor Statistics &nbsp;·&nbsp; Federal Reserve Bank of New York &nbsp;·&nbsp; US Census Bureau ACS 2024 &nbsp;·&nbsp; ILO Global Wage Report 2024–25 &nbsp;·&nbsp; Compiled June 2026
+</footer>
+
+</main>
+</body>
+</html>
